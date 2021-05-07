@@ -1,0 +1,26 @@
+apiVersion: k0sctl.k0sproject.io/v1beta1
+kind: Cluster
+metadata:
+  name: k0s-cluster
+spec:
+  hosts:
+  - ssh:
+      address: <IP1>
+      user: ubuntu
+      port: 22
+      keyPath: /home/ec2-user/.ssh/rohaMirantis.pem
+    role: controller
+  - ssh:
+      address: <IP2>
+      user: ubuntu
+      port: 22
+      keyPath: /home/ec2-user/.ssh/rohaMirantis.pem
+    role: worker
+  - ssh:
+      address: <IP3>
+      user: ubuntu
+      port: 22
+      keyPath: /home/ec2-user/.ssh/rohaMirantis.pem
+    role: worker
+  k0s:
+    version: 1.21.0+k0s.0
